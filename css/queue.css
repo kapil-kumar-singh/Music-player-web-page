@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+/* ----- The queue block on the left ----- */
+
+/* -- Queue Header -- */
+#queue-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 5px 2px;
+}
+
+.inline {
+    display: inline;
+}
+
+#queue-left p {
+    font-size: 25px;
+}
+
+#queue-right {
+    word-spacing: 10px;
+    line-height: 23px;
+    position: relative;
+}
+
+#queue-right p {
+    cursor: pointer;
+}
+
+#queue-header-icon {
+    background-color: rgba(255, 239, 213, 0.623);
+    border-radius: 5px;
+    width: 100px;
+    position: absolute;
+    right: 0;
+    display: none;
+    margin-top: 5px;
+    box-shadow: 0 0 4px 0.3px rgb(231, 166, 100);
+}
+
+#queue-header-icon p {
+    border-bottom: 1px solid black;
+    line-height: 30px;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
+}
+
+#queue-header-icon p:nth-child(1) {
+    border-radius: 5px 5px 0 0;
+}
+#queue-header-icon p:nth-child(2) {
+    border-radius: 0 0 0 0;
+}
+#queue-header-icon p:nth-child(3) {
+    border-radius: 0 0 5px 5px;
+}
+
+#queue-header-icon p:hover {
+    background-color: peru;
+}
+
+#queue-header-icon p:last-child {
+    border-bottom: none;
+}
+
+#queue-right:hover > div {
+    display: block;
+}
+
+/* --- Queue List --- */
+
+#queue-list {
+    width: 100%;
+    height: 100%;
+    margin-top: 25px;
+    padding: 5px 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+	overflow-x: hidden;
+	scroll-snap-align: center;
+	overscroll-behavior: contain; /* to not scroll the other div on this div's completion */
+}
+
+.rotate-90 {
+    transform: rotate(90deg);
+}
+
+.queue-list-item {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.queue-list-item > * {
+    margin: 0 5px;
+}
+
+.queue-list-item:hover {
+    background-image: linear-gradient(45deg, grey, transparent);
+}
+
+.queue-list-img {
+    height: 60px;
+    width: 60px;
+    position: relative;
+    /* object-fit: cover; */
+}
+
+.queue-list-img > img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    box-shadow: 0 0 3px 1px grey;
+    cursor: pointer;
+}
+
+.queue-list-img:hover > img {
+    opacity: 70%;
+}
+
+.queue-list-img > i {
+    transform: scale(2);
+    color: rgb(20, 0, 0);
+    position: absolute;
+    left: 23px;
+    top: 23px;
+    display: none;
+    transition: 1s all;
+}
+
+.queue-list-num {
+    width: 15px;
+}
+
+.queue-list-name {
+    cursor: pointer;
+}
+
+.queue-list-item:hover i {
+    z-index: 100;
+    display: block;
+    animation: scaling;
+    animation-duration: 0.1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-direction: alternate-reverse;
+}
+
+@keyframes scaling {
+    from {
+        transform: scale(1.2);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.queue-list-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.queue-list-icon:hover i {
+    color:red;
+    transition: 0.2s all ease-in-out;
+}
+
+/* For Responsiveness */
+
+@media (max-width: 1500px) {
+    .music-type-child {
+        margin: 3px 20px;
+    }
+
+    .latest-item:last-child {
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (max-width: 1220px) {
+    #queue {
+        width: 30%;
+    }
+
+    #main {
+        width: 65%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #carousel {
+        height: 300px;
+    }
+
+    .music-type-child {
+        transform: scale(0.9);
+    }
+
+    .latest-block {
+        justify-content: center;
+    }
+
+    #music-type {
+        width: 100%;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .latest-item:last-child {
+        display: block;
+        margin: 5px;
+        /* padding: 0; */
+    }
+}
+
+@media (max-width: 1000px) {
+    #queue {
+        display: none;
+    }
+
+    #main {
+        width: 100%;
+    }
+
+    .latest-item:last-child {
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (max-width: 850px) {
+    .latest-item:last-child {
+        display: block;
+        margin: 5px;
+    }
+}

@@ -1,0 +1,509 @@
+/* ------- Main ------- */
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno&family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/* ----- Carousel ----- */
+
+
+#carousel {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: inherit;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-img {
+    height: 65%;
+    width: 28%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.carousel-img:nth-child(2) {
+    z-index: 100;
+    transform: scaleX(1.2) scaleY(1.1);
+}
+
+.carousel-img-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover contain;
+    box-shadow: 0 0 10px 1px rgba(96, 107, 112, 40%);   
+}
+
+#carousel:hover > * {
+    box-shadow: 0 0 400px 2px grey inset;
+    transform: scale(1);
+}
+
+#carousel:hover > .carousel-img {
+    box-shadow: 0 0 400px 2px grey inset;
+}
+
+#carousel:hover > .carousel-img:nth-child(1){
+    margin-right: -30px;
+}
+
+#carousel:hover > .carousel-img:nth-child(3){
+    margin-left: -30px;
+}
+
+#carousel:hover > .carousel-img:hover  {
+    transform: scaleY(1.2) scaleX(1.45);
+    z-index: 300;
+    opacity: 120%;
+}
+
+/* --Common-classes-- */
+
+/* For the header of each block */
+.list-header {
+    font-weight: bold;
+    color: rgb(71, 59, 59);
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    margin: 10px 0;
+    font-family: 'Roboto Slab','Roboto','MuseoModerno', cursive;
+}
+
+/* For p tags in latest rel grid elements (excluding name) */
+.style-text-1 {
+    font-family: 'roboto', monospace, sans-serif;
+}
+
+/* For header of each latest-rel header */
+.style-text-2 {
+    font-family: 'MuseoModerno', cursive;
+}
+
+.style-text-3 {
+    font-family: 'Open Sans', helvetica, monospace, sans-serif;
+}
+/* For each block like latest/artist etc. */
+.blocks {
+    padding: 5px 30px;
+    margin: 20px 0;
+}
+
+/* For icons */
+i {
+    cursor: pointer;
+}
+
+/* ---------- Latest Release ---------- */
+
+.list-header {
+    color: rgb(243, 220, 190);
+}
+
+#latest-rel-list {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-gap: 20px;
+    padding: 20px 30px;
+}
+
+.latest-grid-item {
+    display: flex;
+    flex-direction: row;
+    height: 90px;
+    align-items: center;
+}
+
+.latest-grid-item > * {
+    margin: 0 5px;
+}
+
+.latest-redundant-div {
+    width: 60px;
+}
+
+.latest-grid-img {
+    height: 90px;
+    width: 90px;
+    position: relative;
+}
+
+.latest-grid-img > i {
+    display: none;
+    position: absolute;
+    top: 26%;
+    left: 26%;
+    font-size: 40px;
+    /* transform: translateX(-10px) translateY(-5px); */
+}
+
+.latest-grid-img:hover > i {
+    display: block;
+    color: white;
+    z-index: 100;
+}
+
+.latest-grid-img:hover > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: linear-gradient(45deg, rgba(153, 151, 151, 80%), rgba(97, 89, 89, 60%));
+    /* background-color: white; */
+    /* box-shadow: 0 0 30px 3px grey inset; */
+    z-index: 50;
+}
+
+.latest-grid-img > img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.latest-grid-icon {
+    align-self: flex-start;
+    text-align: end;
+    position: relative;
+}
+
+.latest-dropdown {
+    display: none;
+    width: 110px;
+    text-align: center;
+    border-radius: 5px;
+    position: relative;
+    background-image: linear-gradient(45deg, lightgray, rgb(9, 206, 206));
+}
+
+.latest-dropdown p {
+    padding: 2px;
+    border-radius: 5px;
+}
+
+
+
+.latest-dropdown p:hover {
+    cursor: pointer;
+    background: linear-gradient(45deg, rgb(9, 206, 206), lightgray);
+}
+
+.latest-grid-icon:hover .latest-dropdown {
+    display: block;
+    position: absolute;
+    right: 0;
+    z-index: 200;
+}
+
+
+/* -------- Popular Artists -------- */
+
+#artists {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.artist {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 4px 0.4px grey;
+    margin: 5px;
+}
+
+.artist:hover {
+    box-shadow: none;
+    transition: 0.2s all;
+}
+
+.artist > img {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.artist > div {
+    display: none;
+    position: absolute;
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    z-index: 100;
+    background: linear-gradient(45deg, rgb(218, 215, 215, 70%), rgb(129, 121, 121, 70%), transparent);
+}
+
+.artist i {
+    position: absolute;
+    font-size: 40px;
+    color: white;
+    left: 35%;
+    top: 34%;
+    display: none;
+    transition: 1s all;
+    z-index: 200;
+}
+
+.artist:hover > div, .artist:hover > i {
+    display: block;
+}
+
+/* -- stations -- */
+
+#stations {
+    padding: 20px 35px;
+    margin: 40px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(rgb(38, 190, 190), transparent);
+}
+
+#stations-l-box {
+    width: 140px;
+    height: 110px;
+    position: relative;
+    margin: 5px 0;
+    /* background-color: grey; */
+}
+
+#stations-l-box #stations-l-box-1 {
+    width: 100%;
+    margin-top: 11.5%;
+    height: 70%;
+    position: absolute;
+    background-color: rgb(251, 255, 0);
+    z-index: 100;
+}
+
+#stations-l-box #stations-l-box-2 {
+    width: 85%;
+    height: 86%;
+    margin: 6% 7% 0 7%;
+    position: absolute;
+    z-index: 200;
+    background-color: rgb(199, 170, 9);
+}
+
+#stations-l-box #stations-l-box-3 {
+    width: 70%;
+    height: 100%;
+    margin: 0 15%;
+    z-index: 300;
+    background-color: rgb(233, 57, 13);
+    position: absolute;
+    object-fit: cover;
+}
+
+#stations-l-box-3 img {
+    object-fit: cover;
+    width: 50%;
+    height: 50%;
+    left: 24%;
+    top: 18%;
+    position: absolute;
+    z-index: 1000; 
+    border-radius: 50%; 
+}
+
+#stations-l-box-3 p {
+    position: relative;
+    top: 80px;
+    left: 25px;
+    font-size: 12px;
+    color: white;
+    font-family: 'roboto',sans-serif;
+    z-index: 900;
+}
+
+.station {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 0 4px 1.3px lightgray;
+    margin: 5px 5px;
+}
+
+.station > img {
+    object-fit: cover;
+    width: 100px;
+    border-radius: 50%;
+    height: 100px;
+}
+
+.station > p {
+    position: absolute;
+    color: rgba(48, 44, 44, 120%);
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    top: 39px;
+    align-items: center;
+    z-index: 300;
+    font-family: 'roboto', Verdana, sans-serif;
+}
+
+.station > div {
+    position: absolute;
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(241, 222, 191, 30%);
+}
+
+/* ------ Music Types Block ----- */
+
+#music-type {
+    width: 100%;
+    margin: 40px 20px 0 0;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.music-type-child {
+    width: 300px;
+    height: 190px;
+    cursor: pointer;
+    position: relative;
+    border-radius: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    margin: 5px;
+    box-shadow: 0 0 4px 1px grey;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+}
+
+.music-type-child:nth-child(1) {
+    background-image: url(../assets/music2.jpg);
+}
+
+.music-type-child:nth-child(2) {
+    background-image: url(../assets/emd2.jpg);
+}
+
+.music-type-child:nth-child(3) {
+    background-image: url(../assets/chill.png);
+}
+
+
+.music-type-child > p {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    position: absolute;
+    left:0;
+    margin: 0;
+    top: 42%;
+    font-size: 25px;
+    transition: none;
+    color: rgb(223, 221, 221);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.music-type-child:hover {
+    background-size: 130%;
+}
+
+
+/* ----- Latest English/Hindi Block ----- */
+
+.latest {
+    margin-top: 40px;
+    padding: 10px 30px;
+}
+
+.latest-block {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.latest-item {
+    width: 140px;
+    height: 200px;
+    margin: 5px;
+}
+
+.latest-item div {
+    cursor: pointer;
+}
+
+.latest-item > div img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    box-shadow: 0 0 4px 1px grey;
+    transition: 0.4s all;
+}
+
+.latest-item > div img:hover {
+    box-shadow: none;
+}
+
+
+/* Responsiveness check */
+
+@media (max-width: 1100px) {
+    #main {
+        width: 100%;
+    }
+
+    #queue {
+        width: 100%;
+    }
+
+    .latest-redundant-div {
+        width: 100px;
+    }
+
+    #artists {
+        justify-content: center;
+    }
+
+    .artist {
+        transform: scale(0.9);
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    #latest-rel-list {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .latest-redundant-div {
+        width: 40%;
+    }
+
+    .carousel-img {
+        height: 50%;
+    }
+}
